@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* SF Pro Text Font Faces */
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Text Regular'),
+       local('SFProText-Regular'),
+       local('SF-Pro-Text-Regular'),
+       local('SF Pro Text'),
+       url('/fonts/SF-Pro-Text-Regular.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Pro Text Medium'),
+       local('SFProText-Medium'),
+       local('SF-Pro-Text-Medium'),
+       url('/fonts/SF-Pro-Text-Medium.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('SF Pro Text Semibold'),
+       local('SFProText-Semibold'),
+       local('SF-Pro-Text-Semibold'),
+       url('/fonts/SF-Pro-Text-Semibold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Text Bold'),
+       local('SFProText-Bold'),
+       local('SF-Pro-Text-Bold'),
+       url('/fonts/SF-Pro-Text-Bold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Bold.otf') format('opentype');
+}
+
+/* Explicit Named Font Families for SF-Pro-Text-Regular and SF-Pro-Text-Bold */
+@font-face {
+  font-family: 'SF-Pro-Text-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Text Regular'),
+       local('SFProText-Regular'),
+       local('SF-Pro-Text-Regular'),
+       url('/fonts/SF-Pro-Text-Regular.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Text Bold'),
+       local('SFProText-Bold'),
+       local('SF-Pro-Text-Bold'),
+       url('/fonts/SF-Pro-Text-Bold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Bold.otf') format('opentype');
+}
+
+body {
+  font-family: 'SF Pro Text', 'SF-Pro-Text-Regular', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #F6F4F0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'SF Pro Text', 'SF-Pro-Text-Regular', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   OFFICIAL PRINT & PDF STYLES
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 10mm 12mm 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 9.5pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide admin chrome */
+  aside,
+  header,
+  nav,
+  .print\:hidden,
+  .no-print,
+  button,
+  input,
+  select {
+    display: none !important;
+  }
+
+  /* Transparent modal wrapper for print */
+  .print-modal-backdrop {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    inset: auto !important;
+    display: block !important;
+  }
+
+  .print-modal-container {
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-modal-header {
+    display: none !important;
+  }
+
+  .printable-document {
+    display: block !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .printable-document * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .page-break-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}

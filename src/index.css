@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* SF Pro Text Font Faces */
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Text Regular'),
+       local('SFProText-Regular'),
+       local('SF-Pro-Text-Regular'),
+       local('SF Pro Text'),
+       url('/fonts/SF-Pro-Text-Regular.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Pro Text Medium'),
+       local('SFProText-Medium'),
+       local('SF-Pro-Text-Medium'),
+       url('/fonts/SF-Pro-Text-Medium.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('SF Pro Text Semibold'),
+       local('SFProText-Semibold'),
+       local('SF-Pro-Text-Semibold'),
+       url('/fonts/SF-Pro-Text-Semibold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Text Bold'),
+       local('SFProText-Bold'),
+       local('SF-Pro-Text-Bold'),
+       url('/fonts/SF-Pro-Text-Bold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Bold.otf') format('opentype');
+}
+
+/* Explicit Named Font Families for SF-Pro-Text-Regular and SF-Pro-Text-Bold */
+@font-face {
+  font-family: 'SF-Pro-Text-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Text Regular'),
+       local('SFProText-Regular'),
+       local('SF-Pro-Text-Regular'),
+       url('/fonts/SF-Pro-Text-Regular.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text-Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Text Bold'),
+       local('SFProText-Bold'),
+       local('SF-Pro-Text-Bold'),
+       url('/fonts/SF-Pro-Text-Bold.otf') format('opentype'),
+       url('https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts@master/SF-Pro-Text-Bold.otf') format('opentype');
+}
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'SF Pro Text', 'SF-Pro-Text-Regular', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #111111;
+    background-color: #FAFAFA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-sans, .font-body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print Optimization: Strict Single-Page A4 Guarantee */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
+  /* When printing an invoice modal, hide surrounding webpage */
+  body.invoice-modal-active header,
+  body.invoice-modal-active footer,
+  body.invoice-modal-active nav,
+  body.invoice-modal-active aside,
+  body.invoice-modal-active .announcement-bar,
+  body.invoice-modal-active #root > *:not(.invoice-modal-container),
+  .no-print {
+    display: none !important;
+  }
+
+  body.invoice-modal-active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.invoice-modal-active .invoice-modal-backdrop {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+
+  body.invoice-modal-active .invoice-modal-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-page-exact {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+}

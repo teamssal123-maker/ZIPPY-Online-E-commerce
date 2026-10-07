@@ -1,0 +1,6 @@
+{
+  "name": "Zippy | Premium Men's Fashion & Lifestyle",
+  "description": "Zippy Bangladesh - Exclusive luxury menswear, tailored blazers, formal shirts, festive panjabis, executive polos, pants, and handcrafted leather accessories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
