@@ -9,7 +9,7 @@
     "dev:admin": "vite --config admin/vite.config.ts --port=3002 --host=0.0.0.0",
     "dev:backend": "npm run dev --prefix backend",
     "dev:all": "node start.mjs",
-    "build": "vite build",
+    "build": "vite build && vite build --config admin/vite.config.ts",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
     "test:backend": "npm test --prefix backend"

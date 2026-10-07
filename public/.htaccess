@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ensure /admin redirects to /admin/
+  RewriteRule ^admin$ /admin/ [R=301,L]
+
+  # Admin SPA routing
+  RewriteCond %{REQUEST_URI} ^/admin/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^admin/.* /admin/index.html [L]
+
+  # Storefront SPA routing
+  RewriteCond %{REQUEST_URI} !^/admin
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

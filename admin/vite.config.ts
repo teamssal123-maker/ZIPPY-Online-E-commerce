@@ -8,7 +8,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: __dirname,
+  base: '/admin/',
   plugins: [react(), tailwindcss()],
+  build: {
+    outDir: path.resolve(__dirname, '../dist/admin'),
+    emptyOutDir: true
+  },
   server: {
     host: '0.0.0.0',
     port: 3002,
