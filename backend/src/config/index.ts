@@ -1,7 +1,21 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Auto-load root .env or backend .env if available
+try {
+  const rootEnv = path.resolve(__dirname, '../../../.env');
+  const backendEnv = path.resolve(__dirname, '../../.env');
+  if (fs.existsSync(rootEnv)) {
+    process.loadEnvFile(rootEnv);
+  } else if (fs.existsSync(backendEnv)) {
+    process.loadEnvFile(backendEnv);
+  }
+} catch {
+  // ignore
+}
 
 export const config = {
   port: Number(process.env.PORT) || 3001,
